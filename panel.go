@@ -135,6 +135,8 @@ type (
 		Lines           bool             `json:"lines"`
 		Linewidth       uint             `json:"linewidth"`
 		NullPointMode   string           `json:"nullPointMode"`
+		MinTimeInterval string           `json:"MinTimeInterval"`
+		RelativeTime    string           `json:"RelativeTime"`
 		Percentage      bool             `json:"percentage"`
 		Pointradius     int              `json:"pointradius"`
 		Points          bool             `json:"points"`
