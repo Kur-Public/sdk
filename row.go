@@ -21,16 +21,36 @@ package sdk
 
 // Row represents single row of Grafana dashboard.
 type Row struct {
-	Title     string  `json:"title"`
-	ShowTitle bool    `json:"showTitle"`
-	Collapse  bool    `json:"collapse"`
-	Editable  bool    `json:"editable"`
-	Height    Height  `json:"height"`
-	Panels    []Panel `json:"panels"`
-	Repeat    *string `json:"repeat"`
+	Title    string `json:"title"`
+	Collapse bool   `json:"collapse"`
+	GridPos  struct {
+		H *int `json:"h,omitempty"`
+		W *int `json:"w,omitempty"`
+		X *int `json:"x,omitempty"`
+		Y *int `json:"y,omitempty"`
+	} `json:"gridPos,omitempty"`
+	Editable bool    `json:"editable"`
+	Panels   []Panel `json:"panels"`
+	Repeat   *string `json:"repeat"`
+	Type     string  `json:"type"`
 }
 
 var lastPanelID uint
+
+func NewRow(title string) *Row {
+	return &Row{
+		Title:    title,
+		Collapse: false,
+		GridPos: struct {
+			H *int `json:"h,omitempty"`
+			W *int `json:"w,omitempty"`
+			X *int `json:"x,omitempty"`
+			Y *int `json:"y,omitempty"`
+		}{},
+		Type: "row",
+	}
+
+}
 
 func (r *Row) Add(panel *Panel) {
 	lastPanelID++

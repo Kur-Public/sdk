@@ -220,7 +220,6 @@ func (b *Board) AddRow(title string) *Row {
 		Title:    title,
 		Collapse: false,
 		Editable: true,
-		Height:   "250px",
 	}
 	b.Rows = append(b.Rows, row)
 	return row
