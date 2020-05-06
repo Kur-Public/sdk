@@ -242,7 +242,8 @@ type (
 		DashboardTags         []string `json:"dashboardTags,omitempty"`
 	}
 	RowPanel struct {
-		Panels []Panel
+		Collapse bool    `json:"collapse"`
+		Panels   []Panel `json:"panels,omitempty"`
 	}
 	CustomPanel map[string]interface{}
 )
@@ -742,6 +743,12 @@ func (p *Panel) UnmarshalJSON(b []byte) (err error) {
 			p.OfType = DashlistType
 			if err = json.Unmarshal(b, &dashlist); err == nil {
 				p.DashlistPanel = &dashlist
+			}
+		case "row":
+			var row RowPanel
+			p.OfType = RowType
+			if err = json.Unmarshal(b, &row); err == nil {
+				p.RowPanel = &row
 			}
 		default:
 			var custom = make(CustomPanel)

@@ -37,21 +37,6 @@ type Row struct {
 
 var lastPanelID uint
 
-func NewRow(title string) *Row {
-	return &Row{
-		Title:    title,
-		Collapse: false,
-		GridPos: struct {
-			H *int `json:"h,omitempty"`
-			W *int `json:"w,omitempty"`
-			X *int `json:"x,omitempty"`
-			Y *int `json:"y,omitempty"`
-		}{},
-		Type: "row",
-	}
-
-}
-
 func (r *Row) Add(panel *Panel) {
 	lastPanelID++
 	panel.ID = lastPanelID

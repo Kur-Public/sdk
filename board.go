@@ -41,20 +41,20 @@ const (
 type (
 	// Board represents Grafana dashboard.
 	Board struct {
-		ID              uint           `json:"id,omitempty"`
-		UID             string         `json:"uid,omitempty"`
-		Slug            string         `json:"slug"`
-		Title           string         `json:"title"`
-		OriginalTitle   string         `json:"originalTitle"`
-		Tags            []string       `json:"tags"`
-		Style           string         `json:"style"`
-		Timezone        string         `json:"timezone"`
-		Editable        bool           `json:"editable"`
-		HideControls    bool           `json:"hideControls" graf:"hide-controls"`
-		SharedCrosshair bool           `json:"sharedCrosshair" graf:"shared-crosshair"`
-		Panels          []GeneralPanel `json:"panels"`
-		Rows            []*Row         `json:"rows"`
-		Templating      Templating     `json:"templating"`
+		ID              uint       `json:"id,omitempty"`
+		UID             string     `json:"uid,omitempty"`
+		Slug            string     `json:"slug"`
+		Title           string     `json:"title"`
+		OriginalTitle   string     `json:"originalTitle"`
+		Tags            []string   `json:"tags"`
+		Style           string     `json:"style"`
+		Timezone        string     `json:"timezone"`
+		Editable        bool       `json:"editable"`
+		HideControls    bool       `json:"hideControls" graf:"hide-controls"`
+		SharedCrosshair bool       `json:"sharedCrosshair" graf:"shared-crosshair"`
+		Panels          []*Panel   `json:"panels,omitempty"`
+		Rows            []*Row     `json:"rows,omitempty"`
+		Templating      Templating `json:"templating"`
 		Annotations     struct {
 			List []Annotation `json:"list"`
 		} `json:"annotations"`
@@ -83,8 +83,8 @@ type (
 		Type        string   `json:"type"`
 		Auto        bool     `json:"auto,omitempty"`
 		AutoCount   *int     `json:"auto_count,omitempty"`
-		Datasource  *string  `json:"datasource"`
-		Refresh     BoolInt  `json:"refresh"`
+		Datasource  *string  `json:"datasource,omitempty"`
+		Refresh     BoolInt  `json:"refresh",omitempty`
 		Options     []Option `json:"options"`
 		IncludeAll  bool     `json:"includeAll"`
 		AllFormat   string   `json:"allFormat"`
@@ -93,7 +93,7 @@ type (
 		MultiFormat string   `json:"multiFormat"`
 		Query       string   `json:"query"`
 		Regex       string   `json:"regex"`
-		Current     Current  `json:"current"`
+		Current     Current  `json:"current,omitempty"`
 		Label       string   `json:"label"`
 		Hide        uint8    `json:"hide"`
 		Sort        int      `json:"sort"`
@@ -112,12 +112,14 @@ type (
 	}
 	Annotation struct {
 		Name       string   `json:"name"`
-		Datasource *string  `json:"datasource"`
+		BuildIn    int      `json:"buildIn"`
+		Datasource *string  `json:"datasource,omitempty"`
 		ShowLine   bool     `json:"showLine"`
 		IconColor  string   `json:"iconColor"`
 		LineColor  string   `json:"lineColor"`
 		IconSize   uint     `json:"iconSize"`
 		Enable     bool     `json:"enable"`
+		Hide       bool     `json:"hide"`
 		Query      string   `json:"query"`
 		TextField  string   `json:"textField"`
 		TagsField  string   `json:"tagsField"`
