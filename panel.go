@@ -39,6 +39,10 @@ const (
 
 const MixedSource = "-- Mixed --"
 
+type GeneralPanel interface {
+	GeneralPanel()
+}
+
 type (
 	// Panel represents panels of different types defined in Grafana.
 	Panel struct {
@@ -809,6 +813,8 @@ func (p *Panel) MarshalJSON() ([]byte, error) {
 	}
 	return nil, errors.New("can't marshal unknown panel type")
 }
+
+func (p *Panel) GeneralPanel() {}
 
 func incRefID(refID string) string {
 	firstLetter := refID[0]

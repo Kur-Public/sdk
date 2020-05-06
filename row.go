@@ -85,3 +85,5 @@ func (r *Row) AddCustom(data *CustomPanel) {
 	panel.CustomPanel = data
 	r.Panels = append(r.Panels, *panel)
 }
+
+func (r *Row) GeneralPanel() {}
