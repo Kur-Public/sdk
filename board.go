@@ -41,20 +41,20 @@ const (
 type (
 	// Board represents Grafana dashboard.
 	Board struct {
-		ID              uint            `json:"id,omitempty"`
-		UID             string          `json:"uid,omitempty"`
-		Slug            string          `json:"slug"`
-		Title           string          `json:"title"`
-		OriginalTitle   string          `json:"originalTitle"`
-		Tags            []string        `json:"tags"`
-		Style           string          `json:"style"`
-		Timezone        string          `json:"timezone"`
-		Editable        bool            `json:"editable"`
-		HideControls    bool            `json:"hideControls" graf:"hide-controls"`
-		SharedCrosshair bool            `json:"sharedCrosshair" graf:"shared-crosshair"`
-		Panels          []*GeneralPanel `json:"panels"`
-		Rows            []*Row          `json:"rows"`
-		Templating      Templating      `json:"templating"`
+		ID              uint           `json:"id,omitempty"`
+		UID             string         `json:"uid,omitempty"`
+		Slug            string         `json:"slug"`
+		Title           string         `json:"title"`
+		OriginalTitle   string         `json:"originalTitle"`
+		Tags            []string       `json:"tags"`
+		Style           string         `json:"style"`
+		Timezone        string         `json:"timezone"`
+		Editable        bool           `json:"editable"`
+		HideControls    bool           `json:"hideControls" graf:"hide-controls"`
+		SharedCrosshair bool           `json:"sharedCrosshair" graf:"shared-crosshair"`
+		Panels          []GeneralPanel `json:"panels"`
+		Rows            []*Row         `json:"rows"`
+		Templating      Templating     `json:"templating"`
 		Annotations     struct {
 			List []Annotation `json:"list"`
 		} `json:"annotations"`
