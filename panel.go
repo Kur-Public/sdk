@@ -141,7 +141,7 @@ type (
 		NullPointMode   string           `json:"nullPointMode"`
 		Interval        string           `json:"interval"`
 		Percentage      bool             `json:"percentage"`
-		Pointradius     int              `json:"pointradius"`
+		Pointradius     float64          `json:"pointradius"`
 		Points          bool             `json:"points"`
 		RightYAxisLabel *string          `json:"rightYAxisLabel,omitempty"`
 		SeriesOverrides []SeriesOverride `json:"seriesOverrides,omitempty"`
