@@ -45,6 +45,7 @@ type (
 		UID             string     `json:"uid,omitempty"`
 		Slug            string     `json:"slug"`
 		Title           string     `json:"title"`
+		Description     string     `json:"description"`
 		OriginalTitle   string     `json:"originalTitle"`
 		Tags            []string   `json:"tags"`
 		Style           string     `json:"style"`
