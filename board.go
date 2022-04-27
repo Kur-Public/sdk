@@ -92,12 +92,17 @@ type (
 		AllValue    string   `json:"allValue"`
 		Multi       bool     `json:"multi"`
 		MultiFormat string   `json:"multiFormat"`
-		Query       string   `json:"query"`
+		Query       Query    `json:"query"`
 		Regex       string   `json:"regex"`
 		Current     Current  `json:"current,omitempty"`
 		Label       string   `json:"label"`
 		Hide        uint8    `json:"hide"`
 		Sort        int      `json:"sort"`
+		Definition  string   `json:"definition"`
+	}
+	Query struct {
+		Query string `json:"query"`
+		RefId string `json:"refId"`
 	}
 	// for templateVar
 	Option struct {
